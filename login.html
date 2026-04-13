@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — GlobCart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles.css" />
+  <style>
+    .page-container { padding: 120px 5%; min-height: 70vh; max-width: 800px; margin: 0 auto; }
+    .page-title { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; margin-bottom: 1rem; }
+    .form-box { background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; }
+    input { width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: transparent; border: 1px solid rgba(0,0,0,0.2); }
+  </style>
+</head>
+<body>
+  <header id="site-header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="/" style="text-decoration:none; color:inherit;"><span class="logo-globe">?</span><span class="logo-text">GlobCart</span></a>
+      </div>
+      <nav class="header-nav">
+        <a href="/" class="nav-link">Discover</a>
+        <a href="/curated.html" class="nav-link ">Curated</a>
+        <a href="/origin.html" class="nav-link ">Origins</a>
+        <a href="/about.html" class="nav-link ">About</a>
+        <a href="/login.html" class="nav-link active">Login</a>
+        <a href="/signup.html" class="nav-link btn-signup">Sign Up</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page-container">
+    <h1 class="page-title">Login to GlobCart</h1><div class="form-box"><input type="email" placeholder="Email Address"/><input type="password" placeholder="Password"/><button class="btn-primary">Sign In</button></div>
+  </main>
+</body>
+</html>
