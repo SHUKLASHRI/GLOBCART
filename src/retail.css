@@ -1,0 +1,172 @@
+/* =====================================================
+   GlobCart — Retail / Affordable Overrides (Amazon-style)
+   ===================================================== */
+
+/* Force overriding the original dark luxury variables */
+:root {
+  --ink-900: #f8fafc; /* White/Light background */
+  --ink-800: #ffffff; /* Card backgrounds */
+  --ink-700: #ffffff; /* Card backgrounds */
+  --ink-600: #e2e8f0; /* Borders / image placeholders */
+  --ink-400: #cbd5e1;
+  --ink-200: #94a3b8;
+
+  --gold-100: #0f172a; /* Text Dark */
+  --gold-200: #f59e0b; /* Bright Orange Highlights */
+  --gold-300: #eab308; /* Yellow */
+  --gold-400: #d97706;
+  --gold-500: #b45309;
+
+  --cream-100: #0f172a; /* Primary text color (now dark) */
+  --cream-200: #1e293b;
+  --cream-300: #334155;
+
+  --muted: #475569;
+  --border: #e2e8f0;
+  --border-hover: #cbd5e1;
+
+  --font-display: 'Inter', sans-serif;
+  --font-mono: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-glow: none;
+}
+
+/* Force body background white */
+body {
+  background-color: var(--ink-900);
+  background-image: none !important;
+}
+
+#noise-canvas { display: none !important; }
+
+/* ---- Retail Header Overrides ---- */
+#site-header {
+  background: #131921 !important; /* Amazon Dark Blue */
+  height: auto !important;
+  padding: 10px 0;
+  border-bottom: none;
+}
+.header-inner {
+  height: auto;
+  padding: 10px 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.header-logo { flex-shrink: 0; }
+.logo-globe { display: none; }
+.logo-text { color: #ffffff !important; font-size: 24px; font-weight: bold; }
+
+/* ---- Mega Menu (Amazon Options) ---- */
+.mega-menu {
+  width: 100%;
+  background: #232f3e;
+  padding: 8px 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  overflow-x: auto;
+}
+.mega-link {
+  color: #ffffff;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-weight: 500;
+  text-decoration: none;
+}
+.mega-link:hover { outline: 1px solid white; }
+.mega-link.all-menu { font-weight: bold; display: flex; align-items: center; gap: 4px; }
+
+/* ---- Big Search Bar ---- */
+.search-container {
+  flex-grow: 1;
+  display: flex;
+  height: 40px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.search-select {
+  background: #f3f3f3;
+  border: none;
+  padding: 0 10px;
+  color: #333;
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+}
+.search-input {
+  flex-grow: 1;
+  border: none;
+  padding: 0 15px;
+  font-size: 15px;
+}
+.search-btn-mega {
+  background: #febd69;
+  border: none;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.search-btn-mega:hover { background: #f3a847; }
+.search-btn-mega svg { stroke: #333; }
+
+/* Hide old nav */
+.header-nav { display: none; }
+
+/* Actions */
+.header-actions { margin-left: auto; }
+.btn-icon { border: none !important; color: white !important; }
+.btn-icon:hover { background: rgba(255,255,255,0.1) !important; }
+.btn-cart { background: transparent !important; border: none !important; color: white !important; }
+.btn-cart:hover { box-shadow: none !important; outline: 1px solid white; }
+.cart-badge { background: #f59e0b !important; color: #111 !important; font-weight: bold; }
+
+/* ---- Sponsored Products ---- */
+.sponsored-bar {
+  background: white;
+  padding: 20px;
+  border-bottom: 5px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+}
+.sponsored-title {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.sponsored-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+.s-product {
+  min-width: 150px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+.s-product:hover { border-color: #f59e0b; }
+.s-img { width: 100%; height: 100px; background: #cbd5e1; border-radius: 4px; margin-bottom: 8px; }
+.s-title { font-size: 13px; font-weight: 500; color: #0f968c; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.s-price { color: #b12704; font-size: 15px; font-weight: bold; margin-top: 4px; }
+
+/* ---- Fix Overrides ---- */
+.hero { background: none; padding-top: 20px; padding-bottom: 20px; min-height: auto; align-items: flex-start; }
+.hero-content { background: white; padding: 40px; border-radius: 8px; box-shadow: var(--shadow-card); }
+.hero-title { font-family: inherit; font-weight: 800; color: #111; font-size: 48px; }
+.hero-title em { color: #b12704; font-style: normal; }
+.btn-primary { background: #ffd814 !important; border-radius: 100px !important; color: #111 !important; font-weight: 500 !important; border: 1px solid #fcd200; stroke: #111; }
+.btn-primary:hover { background: #f7ca00 !important; border-color: #f2c200; box-shadow: none !important; filter: none !important; }
+.btn-primary::after { display: none !important; }
+.hero-visual { display: none; }
+.card-price { color: #b12704 !important; }
+.card-add-btn { background: #ffd814 !important; color: #111 !important; border-radius: 100px !important; border: 1px solid #fcd200 !important; }

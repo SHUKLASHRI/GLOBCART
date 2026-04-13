@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Origins — GlobCart</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/src/styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" /><link rel="stylesheet" href="/src/styles.css" /><link rel="stylesheet" href="/src/retail.css" />
   <style>
     .page-container { padding: 120px 5%; min-height: 70vh; max-width: 800px; margin: 0 auto; }
     .page-title { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; margin-bottom: 1rem; }
@@ -14,19 +14,33 @@
   </style>
 </head>
 <body>
-  <header id="site-header">
+    <header id="site-header">
     <div class="header-inner">
       <div class="header-logo">
-        <a href="/" style="text-decoration:none; color:inherit;"><span class="logo-globe">?</span><span class="logo-text">GlobCart</span></a>
+        <a href="/" style="text-decoration:none;"><span class="logo-text">GlobCart</span></a>
       </div>
-      <nav class="header-nav">
-        <a href="/" class="nav-link">Discover</a>
-        <a href="/curated.html" class="nav-link ">Curated</a>
-        <a href="/origin.html" class="nav-link active">Origins</a>
-        <a href="/about.html" class="nav-link ">About</a>
-        <a href="/login.html" class="nav-link ">Login</a>
-        <a href="/signup.html" class="nav-link btn-signup">Sign Up</a>
-      </nav>
+      <div class="search-container">
+        <select class="search-select"><option>All</option></select>
+        <input type="text" class="search-input" placeholder="Search the absolute cheapest global finds...">
+        <button class="search-btn-mega">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+      </div>
+      <div class="header-actions">
+        <a href="/login.html" style="color:white; font-size: 13px; text-decoration:none; margin-right:10px;">Hello, sign in<br/><b>Accounts & Lists</b></a>
+        <button class="btn-cart" id="cart-btn" aria-label="Cart">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+    <div class="mega-menu">
+      <a href="#" class="mega-link all-menu">= All</a>
+      <a href="/curated.html" class="mega-link">Today's Deals</a>
+      <a href="/about.html" class="mega-link">Customer Service</a>
+      <a href="/origin.html" class="mega-link">Registry</a>
+      <a href="#" class="mega-link">Gift Cards</a>
+      <a href="#" class="mega-link">Sell</a>
     </div>
   </header>
   <main class="page-container">
@@ -34,3 +48,4 @@
   </main>
 </body>
 </html>
+
