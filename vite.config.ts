@@ -11,6 +11,10 @@ export default defineConfig({
         curated: resolve(__dirname, 'curated.html'),
         login: resolve(__dirname, 'login.html'),
         signup: resolve(__dirname, 'signup.html'),
+        cart: resolve(__dirname, 'cart.html'),
+        checkout: resolve(__dirname, 'checkout.html'),
+        product: resolve(__dirname, 'product.html'),
+        success: resolve(__dirname, 'success.html'),
       }
     }
   },
