@@ -1,4 +1,4 @@
-import { CONFIG } from './config';
+import { CONFIG, supabase } from './config';
 
 /* =====================================================
    GlobCart — main.ts
@@ -305,6 +305,30 @@ function escapeHTML(str: string): string {
     .replace(/'/g,  '&#039;');
 }
 
+// ---- Supabase Google Auth ----
+function initAuth(): void {
+  const googleBtn = document.getElementById('google-login-btn');
+  if (googleBtn) {
+    googleBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      try {
+        const { error } = await supabase.auth.signInWithOAuth({
+          provider: 'google',
+          options: {
+            redirectTo: window.location.origin
+          }
+        });
+        if (error) {
+          console.error('[GlobCart] Google Auth failed:', error.message);
+          alert('Google Auth Failed: ' + error.message);
+        }
+      } catch (err) {
+        console.error('Auth crash', err);
+      }
+    });
+  }
+}
+
 // ---- Init ----
 function init(): void {
   renderNoise();
@@ -315,7 +339,9 @@ function init(): void {
   initFilters();
   initRetry();
   initRevealObserver();
+  initAuth();
   fetchProducts();
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
