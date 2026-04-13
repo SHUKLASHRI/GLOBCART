@@ -1,51 +1,38 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — GLOBCART</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" /><link rel="stylesheet" href="/src/styles.css" /><link rel="stylesheet" href="/src/retail.css" />
-  <style>
-    .page-container { padding: 120px 5%; min-height: 70vh; max-width: 800px; margin: 0 auto; }
-    .page-title { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; margin-bottom: 1rem; }
-    .form-box { background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; }
-    input { width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: transparent; border: 1px solid rgba(0,0,0,0.2); }
-  </style>
+  <title>Our Story - GLOBCART</title>
+  <link rel="stylesheet" href="/src/retail.css" />
 </head>
 <body>
-    <header id="site-header">
-    <div class="header-inner">
-      <div class="header-logo">
-        <a href="/" style="text-decoration:none;"><span class="logo-text">GLOBCART</span></a>
+  <header id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <div class="header-logo"><a href="/"><span class="logo-text">GLOBCART</span></a></div>
+        <div class="header-actions">
+           <a href="/cart.html" class="btn-cart">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span class="cart-badge" id="cart-count">0</span>
+          </a>
+        </div>
       </div>
-      <div class="search-container">
-        <select class="search-select"><option>All</option></select>
-        <input type="text" class="search-input" placeholder="Search the absolute cheapest global finds...">
-        <button class="search-btn-mega">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        </button>
-      </div>
-      <div class="header-actions">
-        <a id="auth-user-link" href="/login.html" style="color:white; font-size: 13px; text-decoration:none; margin-right:10px;">Hello, sign in<br/><b>Accounts & Lists</b></a>
-        <button class="btn-cart" id="cart-btn" aria-label="Cart">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span class="cart-badge">0</span>
-        </button>
-      </div>
-    </div>
-    <div class="mega-menu">
-      <a href="#" class="mega-link all-menu">= All</a>
-      <a href="/curated.html" class="mega-link">Today's Deals</a>
-      <a href="/about.html" class="mega-link">Customer Service</a>
-      <a href="/origin.html" class="mega-link">Registry</a>
-      <a href="#" class="mega-link">Gift Cards</a>
-      <a href="#" class="mega-link">Sell</a>
     </div>
   </header>
-  <main class="page-container">
-    <h1 class="page-title">About GLOBCART</h1><p>We believe global goods shouldn't cost a fortune. We skip the 'finest' label and bring you directly to what's cheap and functional from markets around the world.</p>
+
+  <main class="container" style="padding: 80px 0; max-width: 800px;">
+    <p class="hero-eyebrow">The Mission</p>
+    <h1 class="hero-title">Direct from the <br/> Artisans of Earth.</h1>
+    <p style="font-size:18px; line-height:1.8; color:var(--text-muted); margin-bottom:40px;">
+      GLOBCART was born out of a simple frustration: why must unique, high-quality goods from around the world be gated by premium prices and endless middlemen? 
+      We believe in <b>practical globalism</b>. We source directly from warehouses and artist collectives in 47 countries to bring you the things you need (and the things you didn't know you needed) at prices that make sense.
+    </p>
+    <div style="background:var(--bg-secondary); padding:40px; border-radius:var(--radius-lg); border-left:4px solid var(--accent);">
+        <p style="font-style:italic; font-size:20px; color:var(--text-main);">"Our goal isn't to be the most expensive luxury shop on the web. Our goal is to be the most useful window into the world's real craftsmanship."</p>
+    </div>
   </main>
+
+  <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
-

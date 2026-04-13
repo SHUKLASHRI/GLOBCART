@@ -3,116 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GLOBCART — Affordable Global Finds</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/src/styles.css" />
+  <title>GLOBCART — The World, Delivered.</title>
   <link rel="stylesheet" href="/src/retail.css" />
 </head>
 <body>
 
-  <!-- Ambient background noise -->
-  <canvas id="noise-canvas" aria-hidden="true"></canvas>
-
   <header id="site-header">
-    <div class="header-inner">
-      <div class="header-logo">
-        <a href="/" style="text-decoration:none;"><span class="logo-text">GLOBCART</span></a>
+    <div class="container">
+      <div class="header-inner">
+        <div class="header-logo">
+          <a href="/"><span class="logo-text">GLOBCART</span></a>
+        </div>
+        
+        <div class="search-container">
+          <input type="text" class="search-input" placeholder="Search the world's most unique finds...">
+          <button class="search-btn-mega">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </button>
+        </div>
+
+        <div class="header-actions">
+          <a id="auth-user-link" href="/login.html" class="nav-link-v2">Hello, sign in<br/><b>Accounts</b></a>
+          <a href="/cart.html" class="btn-cart">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span class="cart-badge" id="cart-count">0</span>
+          </a>
+        </div>
       </div>
-      <div class="search-container">
-        <select class="search-select"><option>All</option></select>
-        <input type="text" class="search-input" placeholder="Search the absolute cheapest global finds...">
-        <button class="search-btn-mega">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        </button>
-      </div>
-      <div class="header-actions">
-        <a id="auth-user-link" href="/login.html" style="color:white; font-size: 13px; text-decoration:none; margin-right:10px;">Hello, sign in<br/><b>Accounts & Lists</b></a>
-        <button class="btn-cart" id="cart-btn" aria-label="Cart">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span class="cart-badge" id="cart-count">0</span>
-        </button>
-      </div>
-    </div>
-    <div class="mega-menu">
-      <a href="#" class="mega-link all-menu">≡ All</a>
-      <a href="/curated.html" class="mega-link">Today's Deals</a>
-      <a href="/about.html" class="mega-link">Customer Service</a>
-      <a href="/origin.html" class="mega-link">Registry</a>
-      <a href="#" class="mega-link">Gift Cards</a>
-      <a href="#" class="mega-link">Sell</a>
+      
+      <nav class="mega-menu">
+        <a href="#" class="mega-link">≡ All Categories</a>
+        <a href="/curated.html" class="mega-link">Today's Deals</a>
+        <a href="/about.html" class="mega-link">Our Story</a>
+        <a href="/origin.html" class="mega-link">Global Origins</a>
+        <a href="#" class="mega-link">Gift Cards</a>
+        <a href="#" class="mega-link">Sell Goods</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Sponsored Items -->
-  <div class="sponsored-bar">
-    <div class="sponsored-title">Sponsored Products Related to Your Views</div>
-    <div class="sponsored-scroll">
-      <div class="s-product"><div class="s-img"></div><div class="s-title">Wholesale Bamboo Set</div><div class="s-price">$2.99</div></div>
-      <div class="s-product"><div class="s-img"></div><div class="s-title">Bulk Copper Wire (50m)</div><div class="s-price">$1.50</div></div>
-      <div class="s-product"><div class="s-img"></div><div class="s-title">Factory Direct Leather</div><div class="s-price">$7.00</div></div>
-      <div class="s-product"><div class="s-img"></div><div class="s-title">Clearance Glass Beads</div><div class="s-price">$0.99</div></div>
-      <div class="s-product"><div class="s-img"></div><div class="s-title">Plastic Funnels 20-Pack</div><div class="s-price">$4.20</div></div>
-      <div class="s-product"><div class="s-img"></div><div class="s-title">Unbranded Hand Mixer</div><div class="s-price">$8.99</div></div>
-    </div>
-  </div>
-
-  <main>
-
-    <!-- Hero -->
-    <section class="hero" id="hero">
-      <div class="hero-content">
-        <p class="hero-eyebrow">Sourced Globally, Priced Locally</p>
-        <h1 class="hero-title">
-          Affordable<br/>
-          <em>Global Finds,</em><br/>
-          Delivered.
-        </h1>
-        <p class="hero-sub">We are not selling the finest, but things that you can buy for cheap.</p>
-        <div class="hero-cta">
-          <button class="btn-primary" id="explore-btn">Explore Collection</button>
-          <span class="hero-cta-note">Free worldwide shipping on orders over $200</span>
-        </div>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-        <div class="hero-ring"></div>
-        <div class="hero-globe-text">G L O B C A R T</div>
+  <main class="container">
+    <section class="hero">
+      <p class="hero-eyebrow">Direct from the Artisan</p>
+      <h1 class="hero-title">Discover <em>Rare Finds</em> from Every Corner.</h1>
+      <p class="hero-sub">Beautifully practical goods, sourced globally and priced for the everyday. No middlemen, just the world’s best.</p>
+      <div class="hero-cta">
+        <button class="btn-primary-v2" id="explore-btn">Shop Collection</button>
       </div>
     </section>
 
-    <!-- Ticker -->
-    <div class="ticker-wrap" aria-hidden="true">
-      <div class="ticker-track" id="ticker">
-        <span>Japanese Ceramics</span><span class="sep">·</span>
-        <span>Moroccan Leather</span><span class="sep">·</span>
-        <span>Peruvian Textiles</span><span class="sep">·</span>
-        <span>Swiss Timepieces</span><span class="sep">·</span>
-        <span>Indian Spices</span><span class="sep">·</span>
-        <span>Italian Glassware</span><span class="sep">·</span>
-        <span>Kenyan Coffee</span><span class="sep">·</span>
-        <span>Colombian Gold</span><span class="sep">·</span>
-        <span>Norwegian Design</span><span class="sep">·</span>
-        <span>Japanese Ceramics</span><span class="sep">·</span>
-        <span>Moroccan Leather</span><span class="sep">·</span>
-        <span>Peruvian Textiles</span><span class="sep">·</span>
-        <span>Swiss Timepieces</span><span class="sep">·</span>
-        <span>Indian Spices</span><span class="sep">·</span>
-        <span>Italian Glassware</span><span class="sep">·</span>
-        <span>Kenyan Coffee</span><span class="sep">·</span>
-        <span>Colombian Gold</span><span class="sep">·</span>
-        <span>Norwegian Design</span><span class="sep">·</span>
-      </div>
-    </div>
-
-    <!-- Products -->
     <section class="products-section" id="products">
       <div class="section-header">
-        <div class="section-label">Cheap Deals</div>
-        <h2 class="section-title">Worldwide Steals</h2>
+        <h2 class="section-title">Global Picks</h2>
         <div class="filter-bar" id="filter-bar">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="ceramics">Ceramics</button>
@@ -122,98 +64,49 @@
         </div>
       </div>
 
-      <!-- Loading state -->
-      <div class="products-grid skeleton-grid" id="skeleton-grid">
-        <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
-        <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
-        <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
-        <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
-        <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
-        <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+      <!-- Loading skeleton -->
+      <div class="products-grid" id="skeleton-grid">
+        <div class="product-card" style="height:400px; background:var(--bg-secondary); border:none;"></div>
+        <div class="product-card" style="height:400px; background:var(--bg-secondary); border:none;"></div>
+        <div class="product-card" style="height:400px; background:var(--bg-secondary); border:none;"></div>
       </div>
 
       <!-- Product grid -->
       <div class="products-grid" id="products-grid" style="display:none;"></div>
-
-      <!-- Error state -->
-      <div class="error-state" id="error-state" style="display:none;">
-        <div class="error-icon">⚠</div>
-        <p class="error-title">Could not reach the warehouse</p>
-        <p class="error-sub">Check your connection and try again.</p>
-        <button class="btn-primary" id="retry-btn">Retry</button>
-      </div>
-
-      <!-- Empty state -->
-      <div class="empty-state" id="empty-state" style="display:none;">
-        <div class="empty-icon">◎</div>
-        <p class="empty-title">Nothing here yet</p>
-        <p class="empty-sub">The collection is being assembled. Check back soon.</p>
-      </div>
     </section>
-
-    <!-- Stats band -->
-    <section class="stats-band">
-      <div class="stat-item">
-        <span class="stat-num">47</span>
-        <span class="stat-label">Countries</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-num">3,200+</span>
-        <span class="stat-label">Products</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-num">98%</span>
-        <span class="stat-label">Satisfaction</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-num">120+</span>
-        <span class="stat-label">Artisans</span>
-      </div>
-    </section>
-
   </main>
 
   <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="logo-globe">⊕</span>
-        <span class="logo-text">GLOBCART</span>
-        <p class="footer-tagline">The world, delivered.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <span class="footer-col-title">Shop</span>
-          <a href="#">New Arrivals</a>
-          <a href="#">Bestsellers</a>
-          <a href="#">By Country</a>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <span class="logo-text" style="font-size:24px;">GLOBCART</span>
+          <p style="color:var(--text-muted); margin-top:12px;">The world, delivered. We bring you the most unique, high-quality goods directly from global warehouses.</p>
         </div>
-        <div class="footer-col">
-          <span class="footer-col-title">Company</span>
-          <a href="#">Our Story</a>
-          <a href="#">Artisans</a>
-          <a href="#">Sustainability</a>
-        </div>
-        <div class="footer-col">
-          <span class="footer-col-title">Support</span>
-          <a href="#">Shipping</a>
-          <a href="#">Returns</a>
-          <a href="#">Contact</a>
+        <div class="footer-links">
+          <div class="footer-col">
+            <span class="footer-col-title">Explore</span>
+            <a href="#">New Arrivals</a>
+            <a href="#">Best Sellers</a>
+            <a href="#">Global Story</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Support</span>
+            <a href="/about.html">Customer Service</a>
+            <a href="#">Shipping Details</a>
+            <a href="#">Return Policy</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2025 GLOBCART. All rights reserved.</span>
-      <span>Crafted with care for the world's finest goods.</span>
+      <div style="padding-top:40px; border-top:1px solid var(--border); color:var(--text-muted); font-size:12px; text-align:center;">
+        &copy; 2025 GLOBCART Retail. All rights reserved. Locally sourced global intelligence.
+      </div>
     </div>
   </footer>
 
-  <!-- Cart toast -->
   <div class="toast" id="cart-toast">
-    <span class="toast-icon">✓</span>
-    <span class="toast-msg" id="toast-msg">Added to cart</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toast-msg">Item added to cart</span>
   </div>
 
   <script type="module" src="/src/main.ts"></script>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Curated Deals - GLOBCART</title>
+  <title>Product Details - GLOBCART</title>
   <link rel="stylesheet" href="/src/retail.css" />
 </head>
 <body>
@@ -22,12 +22,21 @@
   </header>
 
   <main class="container" style="padding: 60px 0;">
-    <h1 class="section-title">Today's Curated Steals</h1>
-    <p style="color:var(--text-muted); margin-bottom:40px;">Selected by our global scouts for exceptional value.</p>
-    <div class="products-grid" id="products-grid">
-       <!-- Reusing the main grid logic -->
+    <div id="product-detail-container" style="display:grid; grid-template-columns: 1fr; gap:60px;">
+        <!-- Loading -->
+        <div style="aspect-ratio:1; background:var(--bg-secondary); border-radius:var(--radius-xl);"></div>
+        <div>
+            <div class="hero-eyebrow">Loading Explorer...</div>
+            <h1 class="section-title">One moment...</h1>
+        </div>
     </div>
   </main>
+
+  <style>
+    @media (min-width: 1024px) {
+      #product-detail-container { grid-template-columns: 1fr 1fr; align-items: start; }
+    }
+  </style>
 
   <script type="module" src="/src/main.ts"></script>
 </body>

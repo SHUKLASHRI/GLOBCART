@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart - GLOBCART</title>
+  <link rel="stylesheet" href="/src/retail.css" />
+</head>
+<body>
+  <header id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <div class="header-logo"><a href="/"><span class="logo-text">GLOBCART</span></a></div>
+        <div class="header-actions">
+          <a id="auth-user-link" href="/login.html" class="nav-link-v2">Hello, sign in</a>
+          <a href="/cart.html" class="btn-cart">
+             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+             <span class="cart-badge" id="cart-count">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 60px 0;">
+    <h1 class="section-title" style="margin-bottom: 40px;">Your Shopping Cart</h1>
+    
+    <div style="display:grid; grid-template-columns: 1fr; gap: 40px; align-items: start;" id="cart-layout">
+        <!-- JS will render items here or a summary based on media queries -->
+        <div id="cart-items-container" style="display:flex; flex-direction:column; gap:16px;">
+            <!-- Loading -->
+            <p>Loading your treasures...</p>
+        </div>
+        
+        <div id="cart-summary" class="auth-card-v2" style="max-width: none; text-align: left;">
+            <!-- Summary rendered by main.ts -->
+        </div>
+    </div>
+  </main>
+
+  <style>
+    @media (min-width: 1024px) {
+      #cart-layout { grid-template-columns: 2fr 1fr; }
+    }
+    .qty-btn { cursor: pointer; transition: background 0.2s; }
+    .qty-btn:hover { background: #e2e8f0 !important; }
+  </style>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

@@ -3,91 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign Up - GLOBCART</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/src/styles.css" />
+  <title>Create Account - GLOBCART</title>
   <link rel="stylesheet" href="/src/retail.css" />
 </head>
 <body>
   <header id="site-header">
-    <div class="header-inner">
-      <div class="header-logo">
-        <a href="/" style="text-decoration:none;"><span class="logo-text">GLOBCART</span></a>
-      </div>
-      <div class="search-container">
-        <input type="text" class="search-input" placeholder="Search global finds...">
-        <button class="search-btn-mega">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        </button>
-      </div>
-      <div class="header-actions">
-        <a id="auth-user-link" href="/login.html" style="color:white; font-size: 13px; text-decoration:none; margin-right:10px;">Hello, sign in<br/><b>Accounts & Lists</b></a>
-        <button class="btn-cart" aria-label="Cart">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span class="cart-badge">0</span>
-        </button>
+    <div class="container">
+      <div class="header-inner">
+        <div class="header-logo"><a href="/"><span class="logo-text">GLOBCART</span></a></div>
       </div>
     </div>
   </header>
 
-  <main class="auth-page-v2">
+  <main class="container auth-page-v2">
     <div class="auth-card-v2">
-      <div class="auth-icon-box">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="17" y1="11" x2="23" y2="11"/>
-        </svg>
-      </div>
-      
-      <div class="auth-header-v2">
-        <h2>Create an account</h2>
-        <p>Join millions of shoppers finding the best global deals. It's free and takes seconds.</p>
-      </div>
+      <h2 class="section-title text-center" style="font-size:24px; margin-bottom:8px;">Start Shopping</h2>
+      <p class="text-center" style="color:var(--text-muted); font-size:14px; margin-bottom:32px;">Create an account to track global finds.</p>
 
-      <div class="auth-form-v2">
-        <p id="auth-message" style="color:#ef4444; font-size:12px; margin-bottom:8px; min-height:18px;"></p>
-        
+      <form class="auth-form-v2" id="signup-form">
+        <p id="auth-message" style="color:#ef4444; font-size:12px; margin-bottom:8px;"></p>
         <div class="auth-input-wrap">
-          <span class="input-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </span>
-          <input id="email-input" class="auth-input-v2" type="email" placeholder="Email Address" autocomplete="email"/>
+          <input id="email-input" class="auth-input-v2" type="email" placeholder="Email Address" required style="padding-left:16px;">
         </div>
-
         <div class="auth-input-wrap">
-          <span class="input-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          </span>
-          <input id="password-input" class="auth-input-v2" type="password" placeholder="Password" autocomplete="new-password"/>
+          <input id="password-input" class="auth-input-v2" type="password" placeholder="Password" required style="padding-left:16px;">
         </div>
-
-        <button id="email-signup-btn" class="btn-get-started" style="margin-top:24px;">Get Started</button>
-      </div>
+        <button id="email-signup-btn" class="btn-primary-v2 w-full" style="margin-top:16px;">Create Account</button>
+      </form>
 
       <div class="auth-divider-v2">
         <div class="line"></div>
-        <span>Or sign up with</span>
+        <span>Or join with</span>
         <div class="line"></div>
       </div>
 
-      <div class="social-grid-v2">
-        <button id="google-login-btn" class="social-btn-v2" title="Google">
-          <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google"/>
-        </button>
-        <button class="social-btn-v2" title="Facebook">
-          <img src="https://www.svgrepo.com/show/448224/facebook.svg" alt="Facebook"/>
-        </button>
-        <button class="social-btn-v2" title="Apple">
-          <img src="https://www.svgrepo.com/show/511330/apple-173.svg" alt="Apple"/>
-        </button>
-      </div>
+      <button id="google-login-btn" class="social-btn-v2" style="width:100%;">
+        <img src="https://www.svgrepo.com/show/475656/google-color.svg" style="width:20px; margin-right:8px;"> Google Account
+      </button>
 
-      <p style="margin-top:24px; font-size:13px; color:#64748b;">
-        Already have an account? <a href="/login.html" style="color:#3b82f6; font-weight:600; text-decoration:none;">Sign In</a>
-      </p>
+      <p class="text-center" style="margin-top:24px; font-size:13px;">Member? <a href="/login.html" style="color:var(--accent); font-weight:700;">Sign In</a></p>
     </div>
   </main>
-  
+
   <script type="module" src="/src/auth.ts"></script>
-  <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
