@@ -1,33 +1,30 @@
 /* =====================================================
-   GlobCart — Retail / Affordable Overrides (Amazon-style)
+   GlobCart — Retail / Affordable Overrides
+   Theme: Green, White, Blue
    ===================================================== */
 
 /* Force overriding the original dark luxury variables */
 :root {
-  --ink-900: #f8fafc; /* White/Light background */
+  --ink-900: #f8fafc; /* Light background */
   --ink-800: #ffffff; /* Card backgrounds */
-  --ink-700: #ffffff; /* Card backgrounds */
-  --ink-600: #e2e8f0; /* Borders / image placeholders */
+  --ink-700: #ffffff;
+  --ink-600: #e2e8f0;
   --ink-400: #cbd5e1;
   --ink-200: #94a3b8;
 
   --gold-100: #0f172a; /* Text Dark */
-  --gold-200: #f59e0b; /* Bright Orange Highlights */
-  --gold-300: #eab308; /* Yellow */
-  --gold-400: #d97706;
-  --gold-500: #b45309;
+  --gold-200: #16a34a; /* Green Highlights */
+  --gold-300: #22c55e;
+  --gold-400: #15803d;
+  --gold-500: #166534;
 
-  --cream-100: #0f172a; /* Primary text color (now dark) */
+  --cream-100: #0f172a; /* Primary text color */
   --cream-200: #1e293b;
   --cream-300: #334155;
 
   --muted: #475569;
   --border: #e2e8f0;
   --border-hover: #cbd5e1;
-
-  --font-display: 'Inter', sans-serif;
-  --font-mono: 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
 
   --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-glow: none;
@@ -43,7 +40,8 @@ body {
 
 /* ---- Retail Header Overrides ---- */
 #site-header {
-  background: #131921 !important; /* Amazon Dark Blue */
+  position: relative !important; /* FIX OVERLAP */
+  background: #1e3a8a !important; /* Dark Blue */
   height: auto !important;
   padding: 10px 0;
   border-bottom: none;
@@ -59,10 +57,10 @@ body {
 .logo-globe { display: none; }
 .logo-text { color: #ffffff !important; font-size: 24px; font-weight: bold; }
 
-/* ---- Mega Menu (Amazon Options) ---- */
+/* ---- Mega Menu ---- */
 .mega-menu {
   width: 100%;
-  background: #232f3e;
+  background: #1e40af; /* Brighter Blue */
   padding: 8px 20px;
   display: flex;
   gap: 15px;
@@ -104,7 +102,7 @@ body {
   font-size: 15px;
 }
 .search-btn-mega {
-  background: #febd69;
+  background: #22c55e; /* Green button */
   border: none;
   width: 45px;
   display: flex;
@@ -112,8 +110,8 @@ body {
   justify-content: center;
   cursor: pointer;
 }
-.search-btn-mega:hover { background: #f3a847; }
-.search-btn-mega svg { stroke: #333; }
+.search-btn-mega:hover { background: #16a34a; }
+.search-btn-mega svg { stroke: #ffffff; }
 
 /* Hide old nav */
 .header-nav { display: none; }
@@ -124,7 +122,7 @@ body {
 .btn-icon:hover { background: rgba(255,255,255,0.1) !important; }
 .btn-cart { background: transparent !important; border: none !important; color: white !important; }
 .btn-cart:hover { box-shadow: none !important; outline: 1px solid white; }
-.cart-badge { background: #f59e0b !important; color: #111 !important; font-weight: bold; }
+.cart-badge { background: #22c55e !important; color: #ffffff !important; font-weight: bold; }
 
 /* ---- Sponsored Products ---- */
 .sponsored-bar {
@@ -154,19 +152,19 @@ body {
   padding: 10px;
   cursor: pointer;
 }
-.s-product:hover { border-color: #f59e0b; }
+.s-product:hover { border-color: #22c55e; }
 .s-img { width: 100%; height: 100px; background: #cbd5e1; border-radius: 4px; margin-bottom: 8px; }
-.s-title { font-size: 13px; font-weight: 500; color: #0f968c; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.s-price { color: #b12704; font-size: 15px; font-weight: bold; margin-top: 4px; }
+.s-title { font-size: 13px; font-weight: 500; color: #1e3a8a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.s-price { color: #15803d; font-size: 15px; font-weight: bold; margin-top: 4px; }
 
 /* ---- Fix Overrides ---- */
 .hero { background: none; padding-top: 20px; padding-bottom: 20px; min-height: auto; align-items: flex-start; }
 .hero-content { background: white; padding: 40px; border-radius: 8px; box-shadow: var(--shadow-card); }
 .hero-title { font-family: inherit; font-weight: 800; color: #111; font-size: 48px; }
-.hero-title em { color: #b12704; font-style: normal; }
-.btn-primary { background: #ffd814 !important; border-radius: 100px !important; color: #111 !important; font-weight: 500 !important; border: 1px solid #fcd200; stroke: #111; }
-.btn-primary:hover { background: #f7ca00 !important; border-color: #f2c200; box-shadow: none !important; filter: none !important; }
+.hero-title em { color: #1e3a8a; font-style: normal; }
+.btn-primary { background: #22c55e !important; border-radius: 100px !important; color: #ffffff !important; font-weight: 600 !important; border: 1px solid #16a34a; stroke: #ffffff; }
+.btn-primary:hover { background: #16a34a !important; border-color: #15803d; box-shadow: none !important; filter: none !important; }
 .btn-primary::after { display: none !important; }
 .hero-visual { display: none; }
-.card-price { color: #b12704 !important; }
-.card-add-btn { background: #ffd814 !important; color: #111 !important; border-radius: 100px !important; border: 1px solid #fcd200 !important; }
+.card-price { color: #15803d !important; }
+.card-add-btn { background: #22c55e !important; color: #ffffff !important; border-radius: 100px !important; border: 1px solid #16a34a !important; }
