@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GLOBCART — The World, Delivered.</title>
+  <title>GLOBCART — The Future of Global Artisanal Finds</title>
   <link rel="stylesheet" href="/src/retail.css" />
 </head>
 <body>
@@ -16,97 +16,95 @@
         </div>
         
         <div class="search-container">
-          <input type="text" class="search-input" placeholder="Search the world's most unique finds...">
+          <input type="text" class="search-input" placeholder="Search the curated collection...">
           <button class="search-btn-mega">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
           </button>
         </div>
 
         <div class="header-actions">
-          <a id="auth-user-link" href="/login.html" class="nav-link-v2">Hello, sign in<br/><b>Accounts</b></a>
+          <a id="auth-user-link" href="/login.html" style="font-size:14px; font-weight:600; color:var(--text-main);">Sign In</a>
           <a href="/cart.html" class="btn-cart">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
             <span class="cart-badge" id="cart-count">0</span>
           </a>
         </div>
       </div>
       
       <nav class="mega-menu">
-        <a href="#" class="mega-link">≡ All Categories</a>
-        <a href="/curated.html" class="mega-link">Today's Deals</a>
-        <a href="/about.html" class="mega-link">Our Story</a>
-        <a href="/origin.html" class="mega-link">Global Origins</a>
-        <a href="#" class="mega-link">Gift Cards</a>
-        <a href="#" class="mega-link">Sell Goods</a>
+        <a href="#" class="mega-link">New Arrivals</a>
+        <a href="/curated.html" class="mega-link">Trending</a>
+        <a href="/about.html" class="mega-link">Our Mission</a>
+        <a href="/origin.html" class="mega-link">Artisan Map</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
     <section class="hero">
-      <p class="hero-eyebrow">Direct from the Artisan</p>
-      <h1 class="hero-title">Discover <em>Rare Finds</em> from Every Corner.</h1>
-      <p class="hero-sub">Beautifully practical goods, sourced globally and priced for the everyday. No middlemen, just the world’s best.</p>
+      <div class="hero-eyebrow">Now Curating in 47 Countries</div>
+      <h1 class="hero-title">The World's Best,<br/> Delivered <em>Simply</em>.</h1>
+      <p class="hero-sub" style="font-size:20px; color:var(--text-muted); margin:0 auto 48px; max-width:700px;">
+        GLOBCART bridges the gap between local artisans and your doorstep. No middlemen. No complexity. Just pure craftsmanship.
+      </p>
       <div class="hero-cta">
-        <button class="btn-primary-v2" id="explore-btn">Shop Collection</button>
+        <button class="btn-primary-v2" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore Collection</button>
       </div>
     </section>
 
-    <section class="products-section" id="products">
-      <div class="section-header">
-        <h2 class="section-title">Global Picks</h2>
-        <div class="filter-bar" id="filter-bar">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="ceramics">Ceramics</button>
-          <button class="filter-btn" data-filter="textiles">Textiles</button>
-          <button class="filter-btn" data-filter="food">Provisions</button>
-          <button class="filter-btn" data-filter="home">Home</button>
-        </div>
-      </div>
+    <div style="background: white; border-radius: var(--radius-xl); padding: 60px 40px; margin-bottom: 100px; box-shadow: var(--shadow-premium); border: 1px solid var(--border-soft);">
+        <section id="products">
+          <div class="section-header" style="margin-bottom: 60px; text-align: center;">
+            <h2 class="hero-title" style="font-size:40px;">Global Picks</h2>
+            <p style="color:var(--text-muted); margin-top:12px;">Items that define their regional heritage.</p>
+          </div>
 
-      <!-- Loading skeleton -->
-      <div class="products-grid" id="skeleton-grid">
-        <div class="product-card" style="height:400px; background:var(--bg-secondary); border:none;"></div>
-        <div class="product-card" style="height:400px; background:var(--bg-secondary); border:none;"></div>
-        <div class="product-card" style="height:400px; background:var(--bg-secondary); border:none;"></div>
-      </div>
-
-      <!-- Product grid -->
-      <div class="products-grid" id="products-grid" style="display:none;"></div>
-    </section>
+          <!-- Product grid -->
+          <div class="products-grid" id="products-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px;">
+             <!-- Renders via main.ts -->
+          </div>
+          
+          <!-- Loading skeleton -->
+          <div class="products-grid" id="skeleton-grid">
+            <div class="product-card" style="height:450px; background:#f8fafc; border:none;"></div>
+            <div class="product-card" style="height:450px; background:#f8fafc; border:none;"></div>
+            <div class="product-card" style="height:450px; background:#f8fafc; border:none;"></div>
+          </div>
+        </section>
+    </div>
   </main>
 
   <footer>
     <div class="container">
       <div class="footer-inner">
         <div>
-          <span class="logo-text" style="font-size:24px;">GLOBCART</span>
-          <p style="color:var(--text-muted); margin-top:12px;">The world, delivered. We bring you the most unique, high-quality goods directly from global warehouses.</p>
+          <span class="logo-text" style="font-size:32px; font-weight:900;">GLOBCART</span>
+          <p style="color:#94a3b8; margin-top:24px; max-width:400px; line-height:1.8;">We believe in a world where quality isn't defined by geography. We find the best, you enjoy the rest.</p>
         </div>
-        <div class="footer-links">
+        <div class="footer-links" style="display:grid; grid-template-columns: 1fr 1fr; gap: 60px;">
           <div class="footer-col">
-            <span class="footer-col-title">Explore</span>
+            <span class="footer-col-title">Product</span>
             <a href="#">New Arrivals</a>
             <a href="#">Best Sellers</a>
-            <a href="#">Global Story</a>
+            <a href="#">Gift Cards</a>
           </div>
           <div class="footer-col">
-            <span class="footer-col-title">Support</span>
-            <a href="/about.html">Customer Service</a>
-            <a href="#">Shipping Details</a>
-            <a href="#">Return Policy</a>
+            <span class="footer-col-title">Company</span>
+            <a href="/about.html">About Us</a>
+            <a href="#">Sustainability</a>
+            <a href="#">Privacy Policy</a>
           </div>
         </div>
       </div>
-      <div style="padding-top:40px; border-top:1px solid var(--border); color:var(--text-muted); font-size:12px; text-align:center;">
-        &copy; 2025 GLOBCART Retail. All rights reserved. Locally sourced global intelligence.
+      <div style="padding-top:60px; border-top:1px solid rgba(255,255,255,0.05); color:#64748b; font-size:14px; text-align:center;">
+        &copy; 2025 GLOBCART. Premium Global Logistics.
       </div>
     </div>
   </footer>
 
-  <div class="toast" id="cart-toast">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-    <span id="toast-msg">Item added to cart</span>
+  <div class="toast" id="cart-toast" style="display:none; transform: translateX(-50%) translateY(100px); position:fixed; bottom:40px; left:50%; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index:2000;">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toast-msg" style="margin-left:12px; font-weight:700; color:white;">Item added to cart</span>
   </div>
 
   <script type="module" src="/src/main.ts"></script>

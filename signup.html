@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Create Account - GLOBCART</title>
+  <title>Join - GLOBCART</title>
   <link rel="stylesheet" href="/src/retail.css" />
 </head>
-<body>
+<body style="background: #f8fafc;">
   <header id="site-header">
     <div class="container">
       <div class="header-inner">
@@ -15,33 +15,38 @@
     </div>
   </header>
 
-  <main class="container auth-page-v2">
-    <div class="auth-card-v2">
-      <h2 class="section-title text-center" style="font-size:24px; margin-bottom:8px;">Start Shopping</h2>
-      <p class="text-center" style="color:var(--text-muted); font-size:14px; margin-bottom:32px;">Create an account to track global finds.</p>
+  <main class="auth-page-v2">
+    <div class="glass-blob blob-1" style="background:#10b981;"></div>
+    <div class="glass-blob blob-2" style="background:#0ea5e9;"></div>
 
-      <form class="auth-form-v2" id="signup-form">
+    <div class="auth-card-v2" style="max-width: 500px; width: 90%;">
+      <h2 class="hero-title" style="font-size:32px; margin-bottom:12px;">Join Us</h2>
+      <p style="color:var(--text-muted); font-size:16px; margin-bottom:40px;">Create an account to start your global collection.</p>
+
+      <form class="auth-form-v2" id="signup-form" style="display:flex; flex-direction:column; gap:16px;">
         <p id="auth-message" style="color:#ef4444; font-size:12px; margin-bottom:8px;"></p>
         <div class="auth-input-wrap">
-          <input id="email-input" class="auth-input-v2" type="email" placeholder="Email Address" required style="padding-left:16px;">
+          <input id="email-input" class="auth-input-v2" type="email" placeholder="Email Address" required>
         </div>
         <div class="auth-input-wrap">
-          <input id="password-input" class="auth-input-v2" type="password" placeholder="Password" required style="padding-left:16px;">
+          <input id="password-input" class="auth-input-v2" type="password" placeholder="Password" required>
         </div>
-        <button id="email-signup-btn" class="btn-primary-v2 w-full" style="margin-top:16px;">Create Account</button>
+        <button id="email-signup-btn" class="btn-primary-v2 w-full" style="margin-top:8px;">Get Started</button>
       </form>
 
-      <div class="auth-divider-v2">
-        <div class="line"></div>
-        <span>Or join with</span>
-        <div class="line"></div>
+      <div class="auth-divider-v2" style="display:flex; align-items:center; gap:16px; margin:32px 0;">
+        <div style="flex:1; height:1px; background:#e2e8f0;"></div>
+        <span style="font-size:12px; font-weight:700; color:#94a3b8; text-transform:uppercase;">Connect with</span>
+        <div style="flex:1; height:1px; background:#e2e8f0;"></div>
       </div>
 
       <button id="google-login-btn" class="social-btn-v2" style="width:100%;">
-        <img src="https://www.svgrepo.com/show/475656/google-color.svg" style="width:20px; margin-right:8px;"> Google Account
+        <img src="https://www.svgrepo.com/show/475656/google-color.svg" style="width:20px;"> Google Account
       </button>
 
-      <p class="text-center" style="margin-top:24px; font-size:13px;">Member? <a href="/login.html" style="color:var(--accent); font-weight:700;">Sign In</a></p>
+      <p class="text-center" style="margin-top:32px; font-size:15px; color:var(--text-muted);">
+        Already a member? <a href="/login.html" style="color:var(--accent); font-weight:800;">Log in</a>
+      </p>
     </div>
   </main>
 

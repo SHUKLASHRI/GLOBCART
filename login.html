@@ -6,7 +6,7 @@
   <title>Sign In - GLOBCART</title>
   <link rel="stylesheet" href="/src/retail.css" />
 </head>
-<body>
+<body style="background: #f8fafc;">
   <header id="site-header">
     <div class="container">
       <div class="header-inner">
@@ -15,36 +15,49 @@
     </div>
   </header>
 
-  <main class="container auth-page-v2">
-    <div class="auth-card-v2">
-      <div style="width:56px; height:56px; background:var(--bg-secondary); border-radius:16px; display:flex; align-items:center; justify-content:center; margin:0 auto 24px;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
-      </div>
-      <h2 class="section-title text-center" style="font-size:24px; margin-bottom:8px;">Welcome Back</h2>
-      <p class="text-center" style="color:var(--text-muted); font-size:14px; margin-bottom:32px;">Please sign in to access your global orders.</p>
+  <main class="auth-page-v2">
+    <!-- Rich Palette Glass Decorations -->
+    <div class="glass-blob blob-1"></div>
+    <div class="glass-blob blob-2"></div>
+    <div class="glass-blob" style="width:250px; height:250px; background:#f472b6; top:20%; left:10%; filter:blur(100px); opacity:0.3; border-radius:50%; position:absolute;"></div>
 
-      <form class="auth-form-v2" id="login-form">
+    <div class="auth-card-v2" style="max-width: 500px; width: 90%;">
+      <div style="width:64px; height:64px; background:linear-gradient(135deg, #0ea5e9, #10b981); border-radius:20px; display:flex; align-items:center; justify-content:center; margin:0 auto 32px; box-shadow: 0 10px 20px -5px rgba(14, 165, 233, 0.5);">
+         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+      </div>
+      
+      <h2 class="hero-title" style="font-size:32px; margin-bottom:12px;">Login</h2>
+      <p style="color:var(--text-muted); font-size:16px; margin-bottom:40px;">Welcome back to GLOBCART. Your world awaits.</p>
+
+      <form class="auth-form-v2" id="login-form" style="display:flex; flex-direction:column; gap:16px;">
         <p id="auth-message" style="color:#ef4444; font-size:12px; margin-bottom:8px;"></p>
         <div class="auth-input-wrap">
-          <input id="email-input" class="auth-input-v2" type="email" placeholder="Email Address" required style="padding-left:16px;">
+          <input id="email-input" class="auth-input-v2" type="email" placeholder="Email Address" required>
         </div>
         <div class="auth-input-wrap">
-          <input id="password-input" class="auth-input-v2" type="password" placeholder="Password" required style="padding-left:16px;">
+          <input id="password-input" class="auth-input-v2" type="password" placeholder="Password" required>
         </div>
-        <button id="email-signin-btn" class="btn-primary-v2 w-full" style="margin-top:16px;">Sign In</button>
+        <button id="email-signin-btn" class="btn-primary-v2 w-full" style="margin-top:8px;">Sign In</button>
       </form>
 
-      <div class="auth-divider-v2">
-        <div class="line"></div>
-        <span>Or continue with</span>
-        <div class="line"></div>
+      <div class="auth-divider-v2" style="display:flex; align-items:center; gap:16px; margin:32px 0;">
+        <div style="flex:1; height:1px; background:#e2e8f0;"></div>
+        <span style="font-size:12px; font-weight:700; color:#94a3b8; text-transform:uppercase; letter-spacing:1px;">Or continue with</span>
+        <div style="flex:1; height:1px; background:#e2e8f0;"></div>
       </div>
 
-      <button id="google-login-btn" class="social-btn-v2" style="width:100%;">
-        <img src="https://www.svgrepo.com/show/475656/google-color.svg" style="width:20px; margin-right:8px;"> Google Account
-      </button>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+          <button id="google-login-btn" class="social-btn-v2">
+            <img src="https://www.svgrepo.com/show/475656/google-color.svg" style="width:20px;"> Google
+          </button>
+          <button class="social-btn-v2">
+            <img src="https://www.svgrepo.com/show/511330/apple-173.svg" style="width:20px;"> Apple
+          </button>
+      </div>
 
-      <p class="text-center" style="margin-top:24px; font-size:13px;">Don't have an account? <a href="/signup.html" style="color:var(--accent); font-weight:700;">Sign Up</a></p>
+      <p class="text-center" style="margin-top:32px; font-size:15px; color:var(--text-muted);">
+        New to the world? <a href="/signup.html" style="color:var(--accent); font-weight:800;">Join now</a>
+      </p>
     </div>
   </main>
 
