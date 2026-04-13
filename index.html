@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+git<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobCart - Global Products Platform</title>
+    <!-- Modern Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">GlobCart</div>
+        <nav class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="btn btn-secondary">Login</button>
+            <button class="btn btn-primary">Sign Up</button>
+        </div>
+    </header>
+
+    <main class="hero-section">
+        <div class="hero-content">
+            <h1>Discover Global Products</h1>
+            <p>Your one-stop platform for the finest products from around the world. Secure, fast, and reliable.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary btn-large">Shop Now</button>
+                <button class="btn btn-outline btn-large">Learn More</button>
+            </div>
+        </div>
+        <div class="backend-status-card glass-panel" id="backend-status">
+            <h3>System Status</h3>
+            <div class="status-indicator">
+                <span class="pulse checking"></span>
+                <span id="status-text">Checking backend connection...</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Vite module entry point -->
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
