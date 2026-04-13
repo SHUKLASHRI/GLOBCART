@@ -1,16 +1,12 @@
-import { createClient } from '@supabase/supabase-js';
-
-// Read Vite env vars injected at build time
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
-
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+import { supabase } from './config';
 
 // Wire Google sign-in button
 const googleBtn = document.getElementById('google-login-btn');
 if (googleBtn) {
     googleBtn.addEventListener('click', async (e) => {
         e.preventDefault();
+        console.log('[GLOBCART] Initiating Google OAuth...');
+        
         (googleBtn as HTMLButtonElement).disabled = true;
         (googleBtn as HTMLButtonElement).textContent = 'Redirecting to Google...';
 
@@ -46,6 +42,7 @@ if (signInBtn) {
             if (authMessage) authMessage.textContent = 'Please enter email and password.';
             return;
         }
+        
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) {
             if (authMessage) authMessage.textContent = error.message;
@@ -66,6 +63,7 @@ if (signUpBtn) {
             if (authMessage) authMessage.textContent = 'Please enter email and password.';
             return;
         }
+        
         const { error } = await supabase.auth.signUp({ email, password });
         if (error) {
             if (authMessage) authMessage.textContent = error.message;

@@ -5,7 +5,6 @@ import { CONFIG, supabase } from './config';
    DOM logic, API integration, interactions
    ===================================================== */
 
-// ---- Types ----
 interface Product {
   id: number;
   name: string;
@@ -24,7 +23,6 @@ let allProducts: Product[] = [];
 let activeFilter = 'all';
 let toastTimer: ReturnType<typeof setTimeout> | null = null;
 
-// Country/origin labels for products (cycled by id)
 const ORIGINS = [
   'Japan', 'Morocco', 'Peru', 'Switzerland', 'India',
   'Italy', 'Kenya', 'Colombia', 'Norway', 'Portugal',
@@ -32,17 +30,54 @@ const ORIGINS = [
 ];
 
 // ---- DOM Refs ----
-const skeletonGrid  = document.getElementById('skeleton-grid')!;
-const productsGrid  = document.getElementById('products-grid')!;
-const errorState    = document.getElementById('error-state')!;
-const emptyState    = document.getElementById('empty-state')!;
-const cartCountEl   = document.getElementById('cart-count')!;
-const retryBtn      = document.getElementById('retry-btn')!;
-const exploreBtn    = document.getElementById('explore-btn')!;
-const filterBar     = document.getElementById('filter-bar')!;
-const toast         = document.getElementById('cart-toast')!;
-const toastMsg      = document.getElementById('toast-msg')!;
-const header        = document.getElementById('site-header')!;
+const skeletonGrid  = document.getElementById('skeleton-grid');
+const productsGrid  = document.getElementById('products-grid');
+const errorState    = document.getElementById('error-state');
+const emptyState    = document.getElementById('empty-state');
+const cartCountEl   = document.getElementById('cart-count');
+const retryBtn      = document.getElementById('retry-btn');
+const exploreBtn    = document.getElementById('explore-btn');
+const filterBar     = document.getElementById('filter-bar');
+const toast         = document.getElementById('cart-toast');
+const toastMsg      = document.getElementById('toast-msg');
+const header        = document.getElementById('site-header');
+
+// ---- Auth UI Update ----
+async function checkUserSession(): Promise<void> {
+    const authUserLink = document.getElementById('auth-user-link');
+    if (!authUserLink) return;
+
+    try {
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (error) throw error;
+
+        if (session?.user) {
+            const user = session.user;
+            const displayName = user.user_metadata?.full_name || user.email?.split('@')[0] || 'Member';
+            
+            authUserLink.innerHTML = `Hello, ${escapeHTML(displayName)}<br/><b>Accounts & Lists</b>`;
+            
+            // Add logout option if not already there
+            if (!document.getElementById('logout-btn')) {
+                const logoutBtn = document.createElement('a');
+                logoutBtn.id = 'logout-btn';
+                logoutBtn.href = '#';
+                logoutBtn.style.color = '#ff9900';
+                logoutBtn.style.fontSize = '11px';
+                logoutBtn.style.display = 'block';
+                logoutBtn.textContent = 'Sign Out';
+                logoutBtn.addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    await supabase.auth.signOut();
+                    window.location.reload();
+                });
+                authUserLink.appendChild(logoutBtn);
+            }
+        }
+    } catch (err) {
+        console.error('[GLOBCART] Session check failed:', err);
+    }
+}
 
 // ---- Noise Canvas ----
 function renderNoise(): void {
@@ -67,8 +102,8 @@ function renderNoise(): void {
   ctx.putImageData(imageData, 0, 0);
 }
 
-// ---- Header scroll ----
 function initScrollHeader(): void {
+  if (!header) return;
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
       header.classList.add('scrolled');
@@ -78,22 +113,22 @@ function initScrollHeader(): void {
   }, { passive: true });
 }
 
-// ---- Scroll to products ----
 function initExploreBtn(): void {
+  if (!exploreBtn) return;
   exploreBtn.addEventListener('click', () => {
     document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
   });
 }
 
-// ---- Cart count ----
 function updateCartBadge(): void {
+  if (!cartCountEl) return;
   cartCountEl.textContent = String(cartCount);
   cartCountEl.style.transform = 'scale(1.4)';
   setTimeout(() => { cartCountEl.style.transform = ''; }, 200);
 }
 
-// ---- Toast ----
 function showToast(message: string): void {
+  if (!toast || !toastMsg) return;
   toastMsg.textContent = message;
   toast.classList.add('show');
 
@@ -103,7 +138,6 @@ function showToast(message: string): void {
   }, 2500);
 }
 
-// ---- Format price ----
 function formatPrice(price: number): string {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -112,13 +146,12 @@ function formatPrice(price: number): string {
   }).format(price);
 }
 
-// ---- Get origin for product ----
 function getOrigin(id: number): string {
   return ORIGINS[id % ORIGINS.length];
 }
 
-// ---- Render products ----
 function renderProducts(products: Product[]): void {
+  if (!productsGrid || !emptyState) return;
   productsGrid.innerHTML = '';
 
   if (products.length === 0) {
@@ -170,7 +203,6 @@ function renderProducts(products: Product[]): void {
     productsGrid.appendChild(card);
   });
 
-  // Add to cart
   productsGrid.querySelectorAll<HTMLButtonElement>('[data-add]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -193,7 +225,6 @@ function renderProducts(products: Product[]): void {
     });
   });
 
-  // Wishlist toggle
   productsGrid.querySelectorAll<HTMLButtonElement>('[data-wishlist]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -204,8 +235,8 @@ function renderProducts(products: Product[]): void {
   });
 }
 
-// ---- Filter ----
 function initFilters(): void {
+  if (!filterBar) return;
   filterBar.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
     if (!target.matches('.filter-btn')) return;
@@ -219,7 +250,6 @@ function initFilters(): void {
 }
 
 function applyFilter(): void {
-  // For a real app, filter by category. Here we filter by name keywords as demo.
   const filterKeywords: Record<string, string[]> = {
     ceramics : ['ceramic', 'pot', 'bowl', 'vase', 'clay', 'porcelain'],
     textiles : ['textile', 'cloth', 'fabric', 'silk', 'wool', 'woven', 'scarf', 'blanket', 'rug'],
@@ -234,16 +264,14 @@ function applyFilter(): void {
       const text = (p.name + ' ' + p.description).toLowerCase();
       return keywords.some(k => text.includes(k));
     });
-    // If nothing matched, show all (graceful fallback)
     if (filtered.length === 0) filtered = allProducts;
   }
 
   renderProducts(filtered);
 }
 
-// ---- Fetch Products ----
 async function fetchProducts(): Promise<void> {
-  // Show skeleton
+  if (!skeletonGrid || !productsGrid || !errorState || !emptyState) return;
   skeletonGrid.style.display  = 'grid';
   productsGrid.style.display  = 'none';
   errorState.style.display    = 'none';
@@ -254,9 +282,7 @@ async function fetchProducts(): Promise<void> {
       headers: { 'Accept': 'application/json' },
     });
 
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-    }
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
     const json: ApiResponse = await res.json();
     allProducts = json.data ?? [];
@@ -272,12 +298,11 @@ async function fetchProducts(): Promise<void> {
   }
 }
 
-// ---- Retry ----
 function initRetry(): void {
+  if (!retryBtn) return;
   retryBtn.addEventListener('click', fetchProducts);
 }
 
-// ---- Intersection Observer (card reveal) ----
 function initRevealObserver(): void {
   const io = new IntersectionObserver(
     (entries) => {
@@ -291,11 +316,9 @@ function initRevealObserver(): void {
     { threshold: 0.1 }
   );
 
-  // Observe stat items
   document.querySelectorAll('.stat-item').forEach(el => io.observe(el));
 }
 
-// ---- Utility ----
 function escapeHTML(str: string): string {
   return str
     .replace(/&/g,  '&amp;')
@@ -305,12 +328,12 @@ function escapeHTML(str: string): string {
     .replace(/'/g,  '&#039;');
 }
 
-// ---- Google Auth via Supabase JS ----
-function initAuth(): void {
+function initAuthButton(): void {
   const googleBtn = document.getElementById('google-login-btn');
   if (googleBtn) {
     googleBtn.addEventListener('click', async (e) => {
       e.preventDefault();
+      console.log('[GLOBCART] Google login requested');
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
@@ -325,7 +348,6 @@ function initAuth(): void {
   }
 }
 
-// ---- Init ----
 function init(): void {
   renderNoise();
   window.addEventListener('resize', () => renderNoise(), { passive: true });
@@ -335,9 +357,12 @@ function init(): void {
   initFilters();
   initRetry();
   initRevealObserver();
-  initAuth();
+  initAuthButton();
+  
+  // Global Session Check
+  checkUserSession();
+  
   fetchProducts();
 }
 
 document.addEventListener('DOMContentLoaded', init);
-
