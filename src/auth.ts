@@ -22,7 +22,7 @@ if (googleBtn) {
         });
 
         if (error) {
-            console.error('[GlobCart] Google Auth error:', error.message);
+            console.error('[GLOBCART] Google Auth error:', error.message);
             alert('Sign in failed: ' + error.message);
             (googleBtn as HTMLButtonElement).disabled = false;
             (googleBtn as HTMLButtonElement).innerHTML =

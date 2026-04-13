@@ -1,7 +1,7 @@
 import { CONFIG, supabase } from './config';
 
 /* =====================================================
-   GlobCart — main.ts
+   GLOBCART — main.ts
    DOM logic, API integration, interactions
    ===================================================== */
 
@@ -265,7 +265,7 @@ async function fetchProducts(): Promise<void> {
     applyFilter();
 
   } catch (err) {
-    console.error('[GlobCart] Failed to fetch products:', err);
+    console.error('[GLOBCART] Failed to fetch products:', err);
     skeletonGrid.style.display = 'none';
     productsGrid.style.display = 'none';
     errorState.style.display   = 'block';
@@ -318,7 +318,7 @@ function initAuth(): void {
         }
       });
       if (error) {
-        console.error('[GlobCart] Google Auth error:', error.message);
+        console.error('[GLOBCART] Google Auth error:', error.message);
         alert('Sign in failed: ' + error.message);
       }
     });
